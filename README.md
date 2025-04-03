@@ -54,3 +54,10 @@ STEP 5: BookDetailComponent
 - trovare il libro corrispondente via BookService
 - mostrare info dettagliate
 - aggiungere un link per tornare alla homepage
+
+
+tasks:
+- routing del dettaglio
+- inserire nuovo libro (titolo, descr, autore, immagine) nel
+momento in cui schiaccio submit aggiungo il libro nell'array
+- fare il giro per il localStorage
