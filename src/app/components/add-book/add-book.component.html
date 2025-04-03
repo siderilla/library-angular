@@ -1,0 +1,12 @@
+<h2>Aggiungi un libro</h2>
+
+<form (ngSubmit)="submit()" #bookForm="ngForm">
+	<input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Titolo" required />
+	<input *ngIf="newBook.authors && newBook.authors.length" [(ngModel)]="newBook.authors[0].name" name="author"
+		placeholder="Autore" required />
+	<textarea *ngIf="newBook.summaries && newBook.summaries.length" [(ngModel)]="newBook.summaries[0]" name="summary"
+		placeholder="Descrizione" required></textarea>
+	<input type="text" [(ngModel)]="newBook['image/jpeg']" name="image" placeholder="URL immagine" required />
+
+	<button type="submit">Aggiungi libro</button>
+</form>

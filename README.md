@@ -1,59 +1,56 @@
-# LibraryAngular
+Struttura componenti:
+1. homepage – mostra tutte le card dei libri
+2. book-card – singola card del libro
+3. book-detail – pagina con info dettagliate sul singolo libro
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+---------------------------------------
 
-## Development server
+STEP 1: crea i componenti
+ng generate component components/homepage
+ng generate component components/book-card
+ng generate component components/book-detail
 
-To start a local development server, run:
+---------------------------------------
 
-```bash
-ng serve
-```
+STEP 2: aggiungi il routing
+il routing serve a 'tracciare' una rotta per tutte le pagine presenti nella nostra web app, con un path e il componente relativo inseriti in un array Routes generato dalla libreria di angular
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---------------------------------------
 
-## Code scaffolding
+STEP 3: interface
+è una descrizione del tipo di dati
+non crea nessun oggetto, nessun dato, niente a runtime
+serve solo a livello di scrittura del codice per dire: "questo oggetto deve avere questa struttura"
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Se tu hai una variabile book, un'interfaccia ti dice:
+✅ questo book ha un titolo
+✅ ha un array di autori
+✅ ha un'immagine
+❌ non può avere proprietà strane tipo book.patateFritte — TypeScript ti avverte
 
-```bash
-ng generate component component-name
-```
+L'interfaccia conviene usarla perché:
+- Permette autocompletamento intelligente
+	Quando scrivi book. → ti appaiono solo le proprietà valide
+	➜ Risparmi tempo, eviti errori
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Tipo forte e controllato
+	Se sbagli a scrivere 'authorss' invece di 'authors', Typescript ti blocca subito
 
-```bash
-ng generate --help
-```
+- Più leggibilità del codice
+	Se leggi 'Book' come tipo, capisci subito che sta rappresentando un libro
 
-## Building
+- Evita bug stupidi
+	Ti avvisa se una proprità non esiste o è del tipo sbagliato (es. 'number' invece di 'string')
 
-To build the project run:
+- Base perfetta per refactoring
+	Se cambi qualcosa nella struttura dati, Typescript ti dirà dove devi aggiornare tutto
 
-```bash
-ng build
-```
+---------------------------------------
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+STEP 4: importare l'interface
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+STEP 5: BookDetailComponent
+- recuperare l'id della URL
+- trovare il libro corrispondente via BookService
+- mostrare info dettagliate
+- aggiungere un link per tornare alla homepage

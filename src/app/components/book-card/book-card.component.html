@@ -1,0 +1,13 @@
+<div class="book-card" *ngIf="book">
+	<div class="image-container">
+		<img [src]="book['image/jpeg']" alt="">
+	</div>
+	<div class="info-container">
+		<h3>{{book.title}}</h3>
+		<ul>
+			<li>{{book.authors[0].name}}</li>
+		</ul>
+		<p>{{book.summaries[0]}}</p>
+		<a [routerLink]="['/detail', book.id]">Vedi dettagli</a>
+	</div>
+</div>

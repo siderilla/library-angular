@@ -1,0 +1,6 @@
+<div *ngIf="book">
+	<img [src]="book['image/jpeg']" alt="Copertina di {{ book.title }}">
+	<h1>{{ book.title }}</h1>
+	<p><strong>Autore:</strong> {{ book.authors[0].name }}</p>
+	<p *ngIf="book.summaries?.length">{{ book.summaries[0] }}</p>
+</div>
