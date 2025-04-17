@@ -1,13 +1,13 @@
-<div class="book-card" *ngIf="book">
-	<div class="image-container">
-		<img [src]="book['image/jpeg']" alt="">
+<mat-card *ngIf="book" class="book-card">
+	<div class="timeline-card">
+		<div class="book-image">
+			<img [src]="book['image/jpeg']" alt="copertina libro">
+		</div>
+		<div class="book-info">
+			<h3>{{ book.title }}</h3>
+			<p class="author">{{ book.authors[0].name }}</p>
+			<p class="summary">{{ book.summaries[0] }}</p>
+			<button mat-button [routerLink]="['/detail', book.id]">Vedi dettagli</button>
+		</div>
 	</div>
-	<div class="info-container">
-		<h3>{{book.title}}</h3>
-		<ul>
-			<li>{{book.authors[0].name}}</li>
-		</ul>
-		<p>{{book.summaries[0]}}</p>
-		<a [routerLink]="['/detail', book.id]">Vedi dettagli</a>
-	</div>
-</div>
+</mat-card>

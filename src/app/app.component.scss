@@ -1,13 +1,15 @@
 .navbar {
-	padding: 1rem;
-	background: #eee;
 	display: flex;
-	gap: 1.5rem;
-  
-	a {
-	  text-decoration: none;
-	  font-weight: bold;
-	  color: #333;
-	}
-  }
-  
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1rem;
+}
+
+.logo {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.spacer {
+	flex: 1;
+}

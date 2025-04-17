@@ -1,6 +1,16 @@
-<nav class="navbar">
-	<a routerLink="/">🏠 Home</a>
-	<a routerLink="/add">➕ Aggiungi libro</a>
-  </nav>
-  <router-outlet></router-outlet>
-  
+<mat-toolbar color="primary" class="navbar">
+	<span class="logo">📚 Libreria</span>
+	<span class="spacer"></span>
+
+	<button mat-icon-button routerLink="/">
+		<mat-icon>home</mat-icon>
+	</button>
+	<button mat-icon-button routerLink="/add">
+		<mat-icon>add</mat-icon>
+	</button>
+	<button mat-icon-button (click)="toggleTheme()" aria-label="Toggle dark mode">
+		<mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+	</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
